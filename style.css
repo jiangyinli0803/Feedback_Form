@@ -62,27 +62,32 @@
 
 .option-other{
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;  
+  gap: 6px; 
   width: 100%;
 }
 
-.option-other input[type="text"] {
-  flex: 1;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  outline: none;
-  padding: 4px 0;
+.other-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 4px;
+}
+
+.option-other textarea {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
   font-size: 16px;
+  height: 60px;
   background: transparent;
+  resize: none;  
 }
 
-.option-other input[type="text"]:focus {
+.option-other textarea:focus {
   border-bottom-color: #004976;
-}
-
-.option-other input[type="text"]:readonly {
-  border-bottom-color: #eee;
 }
 
 input[type="radio"] {
