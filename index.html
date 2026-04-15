@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Feedback zum InnoTank</title>
+    <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f0f4f8;
+        color: #333;
+        padding: 20px;
+    }
+
+    div{margin-left: 8px;}
+
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    header img {
+        width: 180px;
+        margin-bottom: 16px;
+    }
+
+    h1 {
+        color: #004976;
+        font-size: 32px;
+    }
+      form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+
+  .options {
+  display: flex;
+  flex-direction: column; 
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  /*border: 2px solid #ccc;
+  border-radius: 8px;*/
+  cursor: pointer;
+  font-weight: normal;  
+}
+
+.option:hover {
+  border-color: #004976;
+}
+
+.multi_options{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option-other{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.option-other input[type="text"] {
+  flex: 1;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  padding: 4px 0;
+  font-size: 16px;
+  background: transparent;
+}
+
+.option-other input[type="text"]:focus {
+  border-bottom-color: #004976;
+}
+
+.option-other input[type="text"]:readonly {
+  border-bottom-color: #eee;
+}
+
+input[type="radio"] {
+  accent-color: #004976;
+  width: 18px;
+  height: 18px;
+}
+
+input[type="radio"]:checked + span {
+  color: #004976;
+  font-weight: bold;
+}
+
+  p {
+    display: block;
+    font-weight: bold;
+    color: #004976;
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+  
+
+  select, textarea, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  select:focus, textarea:focus, input:focus {
+    border-color: #004976;
+  }
+
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+
+  button {
+    margin-top: 28px;
+    width: 100%;
+    padding: 14px;
+    background-color: #36b0c9;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #2f9db3;
+  }
+
+  .stars {
+  display: flex;
+ flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.stars input {
+  display: none; 
+}
+
+.stars label {
+  font-size: 48px;
+  color: #ccc;
+  cursor: pointer;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.stars input:checked ~ label {
+  color: #f5a623;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+  color: #f5a623;
+}
+
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e0004d;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+
+<body>
+<header>
+    <img src="logo.png" alt="Logo" />
+    <h1>Feedback zum InnoTank</h1>
+    <!--<p>Wir laden Nutzer/-innen herzlich ein, ihr Feedback zu teilen, um das App-Erlebnis gemeinsam zu verbessern</p>-->
+</header>
+
+<form id="my-form">
+  <p>1. Wie zufrieden sind Sie mit unserer App?</p>
+  <div class="stars">
+    <input type="radio" name="entry.1230262722" value="5" id="star5" />
+    <label for="star5">★</label>
+    <input type="radio" name="entry.1230262722" value="4" id="star4" />
+    <label for="star4">★</label>
+    <input type="radio" name="entry.1230262722" value="3" id="star3" />
+    <label for="star3">★</label>
+    <input type="radio" name="entry.1230262722" value="2" id="star2" />
+    <label for="star2">★</label>
+    <input type="radio" name="entry.1230262722" value="1" id="star5" />
+    <label for="star1">★</label>
+  </div>
+
+<p>2. Wie war Ihre Nutzungserfahrung?</p>
+<div class="options">
+  <label class="option">
+    <input type="radio" name="entry.1538027903" value="Sehr einfach" />
+    Sehr einfach
+  </label>
+  <label class="option">
+    <input type="radio" name="entry.1538027903" value="Einfach" />
+    Einfach
+  </label>
+  <label class="option">
+    <input type="radio" name="entry.1538027903" value="Mittel" />
+    Mittel
+  </label>
+  <label class="option">
+    <input type="radio" name="entry.1538027903" value="Schwierig" />
+    Schwierig
+  </label>
+  <label class="option">
+    <input type="radio" name="entry.1538027903" value="Sehr schwierig" />
+    Sehr schwierig
+  </label>
+</div>
+
+<p>3. Was gefällt Ihnen an der App?</p>
+<div class="multi_options">
+  <label class="option">
+    <input type="checkbox" name="entry.354416869" value="Einfaches Einreichen von Ideen" />
+    Einfaches Einreichen von Ideen
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.354416869" value="Übersichtliche Darstellung" />
+    Übersichtliche Darstellung
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.354416869" value="Schnelles Feedback zur Idee" />
+    Schnelles Feedback zur Idee
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.354416869" value="Transparenter Prozess" />
+    Transparenter Prozess
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.354416869" value="Motiviert zum Mitmachen" />
+    Motiviert zum Mitmachen
+  </label>
+  <!--Sonstiges: -->
+  <label class="option option-other">
+    <input type="checkbox" id="other1-check" value="Sonstiges"/>
+    Sonstiges:
+    <input type="text" id="other1-text" name="entry.354416869" placeholder="Ihre Antwort..." readonly />
+  </label>
+</div>
+
+<p>4. Was können wir verbessern?</p>
+<div class="multi_options">
+  <label class="option">
+    <input type="checkbox" name="entry.2048132362" value="Bessere Rückmeldung bei Ablehnung" />
+    Bessere Rückmeldung bei Ablehnung
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.2048132362" value="Mehr Kategorien für Ideen" />
+    Mehr Kategorien für Ideen
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.2048132362" value="Statusverfolgung verbessern" />
+    Statusverfolgung verbessern
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.2048132362" value="Mehr Interaktion mit anderen Ideen" />
+    Mehr Interaktion mit anderen Ideen
+  </label>
+  <label class="option">
+    <input type="checkbox" name="entry.2048132362" value="Schnellere Bearbeitung" />
+    Schnellere Bearbeitung
+  </label>
+  <!-- Sonstiges: -->
+  <label class="option option-other">
+    <input type="checkbox" id="other2-check" value="Sonstiges"/>
+    Sonstiges:
+    <input type="text" id="other2-text" name="entry.2048132362" placeholder="Ihre Antwort..." readonly />
+  </label>
+</div>
+
+<p>5. Wie wahrscheinlich ist es, dass Sie unsere App weiterempfehlen?</p>
+<div class="stars">
+  <input type="radio" name="entry.708514432" value="5" id="s5" />
+  <label for="s5">★</label>
+  <input type="radio" name="entry.708514432" value="4" id="s4" />
+  <label for="s4">★</label>
+  <input type="radio" name="entry.708514432" value="3" id="s3" />
+  <label for="s3">★</label>
+  <input type="radio" name="entry.708514432" value="2" id="s2" />
+  <label for="s2">★</label>
+  <input type="radio" name="entry.708514432" value="1" id="s1" />
+  <label for="s1">★</label>
+</div>
+  
+<button type="submit">Absenden</button>
+</form>
+
+<div id="thank-you" style="display:none">
+  <div class="modal-overlay">
+    <div class="modal-box">
+      <p>Vielen Dank für Ihr wertvolles Feedback! 🎉</p>
+    </div>
+  </div>
+</div>
+
+
+<!--<iframe name="hidden_iframe" style="display:none"></iframe>-->
+
+  <script>
+  const other1Check = document.getElementById('other1-check')
+  const other1Text = document.getElementById('other1-text')
+
+  other1Check.addEventListener('change', function() {
+    if (this.checked) {
+      other1Text.removeAttribute('readonly')
+      other1Text.focus()
+    } else {
+     other1Text.setAttribute('readonly', true)
+      other1Text.value = ''
+    }
+  })
+  other1Text.addEventListener('focus', function() {
+    other1Check.checked = true
+    other1Text.removeAttribute('readonly')
+})
+
+  other1Text.addEventListener('input', function() {
+  other1Check.checked = this.value.trim() !== ''
+})
+
+   const other2Check = document.getElementById('other2-check')
+   const other2Text = document.getElementById('other2-text')
+
+   other2Check.addEventListener('change', function() {
+    if (this.checked) {
+      other2Text.removeAttribute('readonly')
+      other2Text.focus()
+    } else {
+      other2Text.setAttribute('readonly', true)
+      other2Text.value = ''
+    }
+   })
+    other2Text.addEventListener('focus', function() {
+    other2Check.checked = true
+    other2Text.removeAttribute('readonly')
+})
+
+  other2Text.addEventListener('input', function() {
+  other2Check.checked = this.value.trim() !== ''
+})
+
+document.getElementById('my-form').addEventListener('submit', function(e) {
+  e.preventDefault()
+
+  document.getElementById('thank-you').style.display = 'block'
+  setTimeout(() => {      
+      document.getElementById('thank-you').style.display = 'none'
+    }, 3000)
+  
+  const formData = new FormData(this)
+  const data = {}
+
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      // checkbox 
+      data[key] = data[key] + ', ' + value
+    } else {
+      data[key] = value
+    }
+  })
+ 
+  fetch('https://script.google.com/macros/s/AKfycbyuz9kadnsoiKbDYjveHgPwXLKYkh5kw9iIM7DeM5ZFActloRcpiJR06n330oEHFt4g/exec', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })   
+  .catch(err => {
+    console.error(err)
+    alert('Submit failed!')
+  })
+ 
+  this.reset()
+})
+</script>
+
+</body>
+</html>
